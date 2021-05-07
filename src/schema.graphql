@@ -1,0 +1,31 @@
+    type Query {
+        customer(id:String):Customer!
+        accounts(customerId:String):[Account!]!
+    }
+
+    type Customer {
+        id: String!
+        firstName: String!
+        lastName: String!
+        contacts: [Customer!]
+        accounts: [Account!]
+    }
+
+    type Account {
+        id: String!
+        balance: Float
+        nickName: String!
+        type: String!
+        currency: String!
+        transactions: [Transaction!]!
+        owner: Customer!
+    }
+
+    type Transaction {
+        id: String!
+        type: String!
+        description: String!
+        date: String!
+        currency: String!
+        amount: Float!
+    }
